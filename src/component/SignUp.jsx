@@ -45,10 +45,8 @@ export const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <p style={{ color: "blue", width: "290px" }}>
-                    You are agreeing to the Terms of Services and Privacy Policy
-                </p>
-                <Button variant="contained" onClick={handleclick}>
+            
+                <Button variant="contained" onClick={handleclick} sx={{width:"210px"}}>
                     Get Started
                 </Button>
 
