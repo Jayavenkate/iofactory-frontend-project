@@ -1,0 +1,74 @@
+import { Button, Card, TextField } from "@mui/material";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signupuser } from "../slice/userSlice";
+
+export const SignUp = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleclick = () => {
+        dispatch(signupuser({ name, email, password }))
+        navigate("/")
+    }
+    return (
+        <div
+            style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexWrap: "wrap-reverse"
+            }}
+        >
+            <div>
+                <img
+                    src="https://img.freepik.com/free-vector/father-mother-son-3d-glasses-sitting-chairs-holding-popcorn-buckets-soda-watching-funny-movie-cinema-theatre-vector-illustration-family-leisure-time-entertainment-concept_74855-13067.jpg"
+                    alt="signup"
+                />
+            </div>
+            <Card
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    width: "350px",
+                    height: "450px",
+                    padding: "20px",
+                    margin: "30px auto",
+                }}
+            >
+                <h1 style={{ textAlign: "center" }}>SignUp</h1>
+                <TextField
+                    label=" Name"
+                    variant="outlined"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <TextField
+                    label="Email"
+                    variant="outlined"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <TextField
+                    label="Password"
+                    variant="outlined"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <p style={{ color: "blue" }}>
+                    You are agreeing to the Terms of Services and Privacy Policy
+                </p>
+                <Button variant="contained" onClick={handleclick}>Get Started</Button>
+
+                <p style={{ textAlign: "center" }} onClick={() => navigate("/")}>
+                    Already a member? <span style={{ color: "blue" }}>SignIn</span>
+                </p>
+            </Card>
+        </div>
+    );
+};
