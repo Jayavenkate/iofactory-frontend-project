@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "./Movielist.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTaskToServer, getmovieFromServer } from "../slice/slice";
 import { NavBar } from "./Navbar";
@@ -25,18 +26,7 @@ export const MovieList = () => {
     <div>
       <NavBar />
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          margin: "80px auto",
-          padding: "20px",
-          gap: "20px",
-        }}
-      >
+      <div className="movie-con">
         {movieList.map((mv, index) => (
           <div key={index}>
             <Card sx={{ width: "230px", height: "430px" }}>
@@ -50,7 +40,7 @@ export const MovieList = () => {
               <h3 style={{ textAlign: "center", color: "red" }}>
                 {mv.movieName}
               </h3>
-              <div
+              <div 
                 style={{
                   display: "flex",
                   alignItems: "center",

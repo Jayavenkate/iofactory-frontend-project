@@ -1,0 +1,15 @@
+.movie-con{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 80px auto;
+    padding: 20px;
+    gap: 20px
+}
+.card-con{
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}

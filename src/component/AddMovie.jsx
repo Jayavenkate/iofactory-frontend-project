@@ -1,3 +1,5 @@
+import './AddMovie.css'
+
 import { Button, TextField } from "@mui/material";
 import { NavBar } from "./Navbar";
 import { useState } from "react";
@@ -77,17 +79,7 @@ export const AddMovie = () => {
     return (
         <div>
             <NavBar />
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    width: "600px",
-                    margin: "20px auto",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "10px",
-                }}
-            >
+            <div className="add-con">
                 <h3 style={{ marginTop: "70px" }}>Enter Movies Details</h3>
                 <TextField
                     label="movie Name"
@@ -174,6 +166,7 @@ export const AddMovie = () => {
                     variant="outlined"
                     size="small"
                     value={DOB}
+                    label="DOB"
                     type="date"
                     onChange={(e) => setDOB(e.target.value)}
                     sx={{ width: "210px" }}

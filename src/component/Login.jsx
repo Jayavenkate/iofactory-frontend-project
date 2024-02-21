@@ -1,3 +1,4 @@
+import './Login.css'
 import { Button, Card, TextField } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -22,17 +23,7 @@ export const Login = () => {
     };
     return (
         <div>
-            <Card
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "10px",
-                    width: "350px",
-                    height: "350px",
-                    padding: "20px",
-                    margin: "30px auto",
-                }}
-            >
+            <Card className="login-con">
                 <h1 style={{ textAlign: "center" }}>Login</h1>
 
                 <TextField

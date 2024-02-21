@@ -1,3 +1,5 @@
+import "./SignUp.css";
+
 import { Button, Card, TextField } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -12,35 +14,18 @@ export const SignUp = () => {
     const [password, setPassword] = useState("");
 
     const handleclick = () => {
-        dispatch(signupuser({ name, email, password }))
-        navigate("/")
-    }
+        dispatch(signupuser({ name, email, password }));
+        navigate("/");
+    };
     return (
-        <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexWrap: "wrap-reverse"
-            }}
-        >
+        <div className="signup-con">
             <div>
                 <img
                     src="https://img.freepik.com/free-vector/father-mother-son-3d-glasses-sitting-chairs-holding-popcorn-buckets-soda-watching-funny-movie-cinema-theatre-vector-illustration-family-leisure-time-entertainment-concept_74855-13067.jpg"
                     alt="signup"
                 />
             </div>
-            <Card
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "10px",
-                    width: "350px",
-                    height: "450px",
-                    padding: "20px",
-                    margin: "30px auto",
-                }}
-            >
+            <Card className="card-con">
                 <h1 style={{ textAlign: "center" }}>SignUp</h1>
                 <TextField
                     label=" Name"
@@ -60,10 +45,12 @@ export const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <p style={{ color: "blue" }}>
+                <p style={{ color: "blue", width: "290px" }}>
                     You are agreeing to the Terms of Services and Privacy Policy
                 </p>
-                <Button variant="contained" onClick={handleclick}>Get Started</Button>
+                <Button variant="contained" onClick={handleclick}>
+                    Get Started
+                </Button>
 
                 <p style={{ textAlign: "center" }} onClick={() => navigate("/")}>
                     Already a member? <span style={{ color: "blue" }}>SignIn</span>

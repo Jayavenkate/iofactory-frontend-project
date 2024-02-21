@@ -68,7 +68,7 @@ export function EditMovieForm() {
   return (
     <div>
       <NavBar />
-     <div
+      <div
         style={{
           display: "flex",
           flexDirection: "column",
@@ -163,6 +163,7 @@ export function EditMovieForm() {
         />
         <TextField
           variant="outlined"
+          label="DOB"
           size="small"
           value={DOB}
           type="date"

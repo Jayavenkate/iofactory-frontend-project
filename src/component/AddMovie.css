@@ -1,0 +1,9 @@
+.add-con{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
