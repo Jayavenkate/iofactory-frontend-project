@@ -1,11 +1,10 @@
-import './AddMovie.css'
-
 import { Button, TextField } from "@mui/material";
-import { NavBar } from "./Navbar";
+import { NavBar } from "../Navbar/Navbar";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTaskToServer } from "../slice/slice";
+import { addTaskToServer } from "../../slice/slice";
 import { useNavigate } from "react-router-dom";
+import { AddContainer, HElement } from './AddMovie.styled';
 
 export const AddMovie = () => {
     const dispatch = useDispatch();
@@ -79,8 +78,8 @@ export const AddMovie = () => {
     return (
         <div>
             <NavBar />
-            <div className="add-con">
-                <h3 style={{ marginTop: "70px" }}>Enter Movies Details</h3>
+            <AddContainer >
+                <HElement >Enter Movies Details</HElement>
                 <TextField
                     label="movie Name"
                     variant="outlined"
@@ -89,12 +88,13 @@ export const AddMovie = () => {
                     onChange={(e) => setmovieName(e.target.value)}
                 />
                 <TextField
-                    label="Year of Release"
+                    
                     variant="outlined"
                     size="small"
-                    type="number"
+                    type="date"
                     value={YearofRelease}
                     onChange={(e) => setYearofRelease(e.target.value)}
+                    sx={{ width: "210px" }}
                 />
                 <TextField
                     label=" Genere"
@@ -166,7 +166,7 @@ export const AddMovie = () => {
                     variant="outlined"
                     size="small"
                     value={DOB}
-                    label="DOB"
+                  
                     type="date"
                     onChange={(e) => setDOB(e.target.value)}
                     sx={{ width: "210px" }}
@@ -185,7 +185,7 @@ export const AddMovie = () => {
                 >
                     AddMovie
                 </Button>
-            </div>
+            </AddContainer>
         </div>
     );
 };

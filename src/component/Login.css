@@ -1,9 +1,0 @@
-.login-con {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 350px;
-  height: 350px;
-  padding: 20px;
-  margin: 30px auto;
-}

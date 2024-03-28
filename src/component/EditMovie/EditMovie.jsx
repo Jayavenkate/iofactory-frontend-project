@@ -1,9 +1,10 @@
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieById, updateTaskToServer } from "../slice/slice";
+import { getMovieById, updateTaskToServer } from "../../slice/slice";
 import { useNavigate, useParams } from "react-router-dom";
-import { NavBar } from "./Navbar";
+import { NavBar } from "../Navbar/Navbar";
+import { EditContainer, HElement } from "./EditMovie.styled";
 
 export function EditMovie() {
   const { id } = useParams();
@@ -23,9 +24,7 @@ export function EditMovieForm() {
   const { selectedmovie } = useSelector((state) => state.movies);
   //selected data
   const [movieName, setmovieName] = useState(selectedmovie.movieName);
-  const [YearofRelease, setYearofRelease] = useState(
-    selectedmovie.YearofRelease
-  );
+  const [YearofRelease, setYearofRelease] = useState(selectedmovie.YearofRelease);
   const [Plot, setPlot] = useState(selectedmovie.Plot);
   const [Poster, setPoster] = useState(selectedmovie.Poster);
   const [HeroName, setHeroName] = useState(selectedmovie.HeroName);
@@ -68,18 +67,8 @@ export function EditMovieForm() {
   return (
     <div>
       <NavBar />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "600px",
-          margin: "0 auto",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "10px",
-        }}
-      >
-        <h3 style={{ marginTop: "70px" }}>Enter Movies Details</h3>
+      <EditContainer>
+        <HElement >Enter Movies Details</HElement>
         <TextField
           label="movie Name"
           variant="outlined"
@@ -88,12 +77,13 @@ export function EditMovieForm() {
           onChange={(e) => setmovieName(e.target.value)}
         />
         <TextField
-          label="Year of Release"
+
           variant="outlined"
           size="small"
-          type="number"
+          type="date"
           value={YearofRelease}
           onChange={(e) => setYearofRelease(e.target.value)}
+          sx={{ width: "210px" }}
         />
         <TextField
           label=" Genere"
@@ -163,7 +153,7 @@ export function EditMovieForm() {
         />
         <TextField
           variant="outlined"
-          label="DOB"
+
           size="small"
           value={DOB}
           type="date"
@@ -180,7 +170,7 @@ export function EditMovieForm() {
         <Button variant="contained" onClick={handleEdit}>
           Edit Movie
         </Button>
-      </div>
+      </EditContainer>
     </div>
   );
 }

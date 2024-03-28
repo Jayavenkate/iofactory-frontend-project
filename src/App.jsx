@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { MovieList } from "./component/Movielist";
-import { SignUp } from "./component/SignUp";
-import { Login } from "./component/Login";
-import { AddMovie } from "./component/AddMovie";
-import { MovieDetails } from "./component/MovieDetails";
-import { EditMovie } from "./component/EditMovie";
+import { MovieList } from "./component/MovieList/Movielist";
+import { SignUp } from "./component/SignUp/SignUp";
+import { Login } from "./component/Login/Login";
+
+import { MovieDetails } from "./component/MovieDetails/MovieDetails";
+import { EditMovie } from "./component/EditMovie/EditMovie";
+import { AddMovie } from "./component/AddMovie/AddMovie";
 
 function App() {
   return (
@@ -13,7 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-
         <Route path="/addmovie" element={<AddMovie />} />
         <Route path="/movielist" element={<MovieList />} />
         <Route path="/movie/:id" element={<MovieDetails />} />

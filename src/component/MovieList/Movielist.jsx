@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import "./Movielist.css";
+import "./Movielist.styled.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTaskToServer, getmovieFromServer } from "../slice/slice";
-import { NavBar } from "./Navbar";
+import { deleteTaskToServer, getmovieFromServer } from "../../slice/slice";
+import { NavBar } from "../Navbar/Navbar";
 import { Button, Card, IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
+import { DivContainer, DivWrapper, HElement } from "./Movielist.styled.jsx";
 
 export const MovieList = () => {
   const { movieList } = useSelector((state) => state.movies);
@@ -26,10 +27,10 @@ export const MovieList = () => {
     <div>
       <NavBar />
 
-      <div className="movie-con">
+      <DivContainer>
         {movieList.map((mv, index) => (
           <div key={index}>
-            <Card sx={{ width: "230px", height: "430px" }}>
+            <Card>
               <img
                 src={mv.Poster}
                 alt={mv.movieName}
@@ -37,16 +38,8 @@ export const MovieList = () => {
                 height={300}
                 style={{ objectFit: "cover" }}
               />
-              <h3 style={{ textAlign: "center", color: "red" }}>
-                {mv.movieName}
-              </h3>
-              <div 
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
+              <HElement>{mv.movieName}</HElement>
+              <DivWrapper>
                 <Button
                   variant="contained"
                   color="error"
@@ -62,11 +55,11 @@ export const MovieList = () => {
                     <DeleteIcon />
                   </IconButton>
                 </div>
-              </div>
+              </DivWrapper>
             </Card>
           </div>
         ))}
-      </div>
+      </DivContainer>
     </div>
   );
 };
